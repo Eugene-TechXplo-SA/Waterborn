@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
-import { Home, School, Trophy, User as UserIcon, Calendar } from 'lucide-react-native';
+import { Chrome as Home, School, Trophy, User as UserIcon, Calendar } from 'lucide-react-native';
 import { colors } from '@/utils/theme';
 import CustomHeader from '@/components/ui/CustomHeader';
 
