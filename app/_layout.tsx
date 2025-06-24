@@ -1,6 +1,6 @@
 import "../global.css";
 import React, { useEffect } from 'react';
-import { Stack, Redirect } from 'expo-router';
+import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useFrameworkReady } from '@/hooks/useFrameworkReady';
 import { useFonts, Inter_400Regular, Inter_500Medium, Inter_700Bold } from '@expo-google-fonts/inter';
@@ -41,16 +41,16 @@ export default function RootLayout() {
           }} 
         />
         <Stack.Screen 
-          name="index" 
-          options={{ 
-            headerShown: false,
-          }} 
-        />
-        <Stack.Screen 
           name="(tabs)" 
           options={{ 
             headerShown: false,
             contentStyle: { backgroundColor: colors.background.default }
+          }} 
+        />
+        <Stack.Screen 
+          name="index" 
+          options={{ 
+            headerShown: false,
           }} 
         />
         <Stack.Screen name="training/[location]" options={{ presentation: 'modal', headerShown: false }} />
