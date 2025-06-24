@@ -64,9 +64,7 @@ export default function RootLayout() {
         <Stack.Screen name="admin/index" options={{ headerShown: false }} />
         <Stack.Screen name="bill/index" options={{ headerShown: false }} />
         <Stack.Screen name="documents/index" options={{ headerShown: false }} />
-        <Stack.Screen name="(tabs)/profile" options={{ headerShown: false }} />
         <Stack.Screen name="volunteer/index" options={{ headerShown: false }} />
-        <Stack.Screen name="(tabs)/events" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" options={{ headerShown: false }} />
       </Stack>
       <StatusBar style="light" />
