@@ -5,23 +5,7 @@ import { useNavigation, router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
 
-import {
-  Bell,
-  User,
-  Building,
-  FileText,
-  ShoppingBag,
-  Trophy,
-  Receipt,
-  Clock,
-  Home,
-  Calendar,
-  Star,
-  UserCircle,
-  ChevronRight,
-  Waves,
-  Settings
-} from 'lucide-react-native'; // Correct import for React Native
+import { Bell, User, Building, FileText, ShoppingBag, Trophy, Receipt, Clock, Chrome as Home, Calendar, Star, CircleUser as UserCircle, ChevronRight, Waves, Settings } from 'lucide-react-native'; // Correct import for React Native
 
 import { MotiView } from 'moti';
 import { Easing } from 'react-native-reanimated';
