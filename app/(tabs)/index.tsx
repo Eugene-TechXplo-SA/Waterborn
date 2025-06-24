@@ -48,7 +48,7 @@ export default function App() {
       title: 'Training Schedule',
       icon: <Building size={28} color="white" />,
       gradient: ['#22d3ee', '#3b82f6', '#2563eb'] as const, // cyan-400, blue-500, blue-600
-      href: '/(tabs)/schedule'
+      href: '/training/index'
     },
     {
       id: 'documents',
@@ -70,7 +70,7 @@ export default function App() {
       title: 'Gala Registration',
       icon: <Trophy size={28} color="white" />,
       gradient: ['#fbbf24', '#f97316', '#ef4444'] as const, // amber-400, orange-500, red-500
-      href: '/(tabs)/events'
+      href: '/gala/index'
     },
     {
       id: 'billing',
@@ -96,7 +96,7 @@ export default function App() {
       title: 'Admin Settings',
       icon: <Settings size={28} color="white" />,
       gradient: ['#374151', '#111827'] as const, // gray-700, gray-900
-      href: '/(tabs)/profile'
+      href: '/admin/index'
     });
   }
 

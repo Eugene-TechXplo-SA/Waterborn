@@ -14,8 +14,7 @@ export default function ScheduleScreen() {
 
   const handleViewDocument = (location: TrainingLocation) => {
     router.push({
-      pathname: '/training',
-      params: { id: location.id },
+      pathname: '/training/index',
     });
   };
 
