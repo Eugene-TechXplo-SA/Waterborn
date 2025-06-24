@@ -1,8 +1,7 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
-import { Chrome as Home, School, Trophy, User as UserIcon, Calendar } from 'lucide-react-native';
+import { Home, Calendar, Trophy, User as UserIcon } from 'lucide-react-native';
 import { colors } from '@/utils/theme';
-import CustomHeader from '@/components/ui/CustomHeader';
 
 export default function TabLayout() {
   return (
@@ -33,20 +32,20 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="schedule"
-        options={{
-          title: 'Schedule',
-          tabBarIcon: ({ color, size }) => (
-            <Calendar size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
         name="events"
         options={{
           title: 'Events',
           tabBarIcon: ({ color, size }) => (
             <Trophy size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="schedule"
+        options={{
+          title: 'Schedule',
+          tabBarIcon: ({ color, size }) => (
+            <Calendar size={size} color={color} />
           ),
         }}
       />
