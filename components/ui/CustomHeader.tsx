@@ -31,7 +31,7 @@ export default function CustomHeader({ title, showBack = true, rightComponent }:
           </TouchableOpacity>
         )}
         
-        <Text style={styles.title}>{title}</Text>
+        <Text style={[styles.title, { marginRight: showBack ? 0 : spacing.sm }]}>{title}</Text>
         
         {rightComponent && (
           <View style={styles.rightComponent}>
@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: colors.neutral.white,
     textAlign: 'center',
-    marginRight: showBack ? 0 : spacing.sm, // Balance the title when back button is present
   } as TextStyle,
   rightComponent: {
     marginLeft: spacing.sm,
