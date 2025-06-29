@@ -30,7 +30,7 @@ export default function App() {
     {
       id: 'training',
       title: 'Training Schedule',
-      icon: <Building size={28} color="white" />,
+      icon: <Calendar size={28} color="white" />,
       gradient: ['#22d3ee', '#3b82f6', '#2563eb'] as const, // cyan-400, blue-500, blue-600
       href: '/training'
     },
