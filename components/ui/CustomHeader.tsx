@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity, ViewStyle, TextStyle } from '
 import { useRouter } from 'expo-router';
 import { ArrowLeft } from 'lucide-react-native';
 import { colors, spacing, typography } from '@/utils/theme';
-
+import { LinearGradient } from 'expo-linear-gradient';
 interface CustomHeaderProps {
   title: string;
   showBack?: boolean;
@@ -15,8 +15,15 @@ export default function CustomHeader({ title, showBack = true, rightComponent }:
 
   return (
     <View style={styles.header}>
-      <View style={styles.headerContent}>
-        {showBack && (
+           <LinearGradient
+        colors={["#2563eb", "#06b6d4"]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
+        style={{ paddingTop: 25, paddingBottom: 14, marginTop: -10 }}
+        className="shadow-2xl relative"
+      >
+       
+               {showBack && (
           <TouchableOpacity 
             style={styles.backButton} 
             onPress={() => router.back()}
@@ -30,6 +37,11 @@ export default function CustomHeader({ title, showBack = true, rightComponent }:
             {rightComponent}
           </View>
         )}
+           
+      
+      </LinearGradient>
+      <View style={styles.headerContent}>
+     
       </View>
     </View>
   );
