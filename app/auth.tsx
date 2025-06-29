@@ -99,7 +99,7 @@ export default function AuthScreen() {
         colors={["#2563eb", "#06b6d4"]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}
-        style={{ padding: 20, marginTop: -10, borderRadius: 10 }}
+        style={{ padding: 20, marginTop: -10, borderRadius: 10, width: 50 }}
         className="shadow-2xl relative"
       >
        
