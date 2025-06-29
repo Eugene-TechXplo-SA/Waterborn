@@ -14,7 +14,7 @@ export default function CustomHeader({ title, showBack = true, rightComponent }:
   const router = useRouter();
 
   return (
-    <View style={styles.header}>
+    <View>
            <LinearGradient
         colors={["#2563eb", "#06b6d4"]}
         start={{ x: 0, y: 0 }}
@@ -40,16 +40,16 @@ export default function CustomHeader({ title, showBack = true, rightComponent }:
            
       
       </LinearGradient>
-      <View style={styles.headerContent}>
+      {/* <View style={styles.headerContent}>
      
-      </View>
+      </View> */}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: colors.primary.main,
+    // backgroundColor: colors.primary.main,
     paddingTop: 50,
     paddingBottom: spacing.md,
     borderBottomWidth: 1,
