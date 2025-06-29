@@ -136,9 +136,6 @@ export default function App() {
         <View className="relative px-6 py-6">
           <View className="flex flex-row items-center justify-between">
             <View className="flex flex-row items-center space-x-3">
-              {/* <View className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                <Waves size={24} color="white" />
-              </View> */}
               <Text className="text-3xl font-bold text-white tracking-tight ">
                 Waterborn
               </Text>
@@ -219,4 +216,4 @@ export default function App() {
       </ScrollView>
     </SafeAreaView>
   );
-} 
+}
