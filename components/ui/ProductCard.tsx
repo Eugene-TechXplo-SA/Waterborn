@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
   priceGradient: {
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.xs,
+  } as ViewStyle,
   category: {
     fontSize: typography.fontSizes.sm,
     color: colors.text.secondary,
