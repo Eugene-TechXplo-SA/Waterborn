@@ -110,8 +110,7 @@ export default function MarketplaceScreen() {
               </Text>
               
              
-                ))}
-              </View>
+               
             </View>
           </LinearGradient>
         </View>
