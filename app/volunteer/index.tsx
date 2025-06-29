@@ -162,7 +162,7 @@ export default function VolunteerScreen() {
                         <Text style={styles.registerText}>Register Now</Text>
                       </LinearGradient>
                     </TouchableOpacity>
-                  </div>
+                  </View>
                 </View>
               </View>
             ))}
