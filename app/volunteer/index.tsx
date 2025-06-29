@@ -377,13 +377,13 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: spacing.sm,
     borderRadius: 5,
-    padding: 10,
+    
   },
   registerGradient: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: spacing.sm,
+    paddingVertical: spacing.lg,
     paddingHorizontal: spacing.md,
   },
   registerText: {
