@@ -112,29 +112,46 @@ export default function DocumentsScreen() {
           <Text style={styles.sectionTitle}>Categories</Text>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {categories.map((category, index) => (
-              <TouchableOpacity
-                key={index}
-                style={[
-                  styles.categoryButton,
-                  selectedCategory === category && styles.categoryButtonActive,
-                ]}
-                onPress={() => setSelectedCategory(category)}
-              >
-                <View style={styles.categoryContent}>
-                  <Folder 
-                    size={16} 
-                    color={selectedCategory === category ? 'white' : colors.primary.main} 
-                  />
-                  <Text
-                    style={[
-                      styles.categoryText,
-                      selectedCategory === category && styles.categoryTextActive,
-                    ]}
+              <View key={index}>
+                {selectedCategory === category ? (
+                  <TouchableOpacity
+                    style={styles.categoryButton}
+                    onPress={() => setSelectedCategory(category)}
                   >
-                    {category}
-                  </Text>
-                </View>
-              </TouchableOpacity>
+                    <LinearGradient
+                      colors={["#2563eb", "#06b6d4"]}
+                      start={{ x: 0, y: 0 }}
+                      end={{ x: 1, y: 0 }}
+                      style={styles.categoryButtonActive}
+                    >
+                      <View style={styles.categoryContent}>
+                        <Folder 
+                          size={16} 
+                          color="white"
+                        />
+                        <Text style={styles.categoryTextActive}>
+                          {category}
+                        </Text>
+                      </View>
+                    </LinearGradient>
+                  </TouchableOpacity>
+                ) : (
+                  <TouchableOpacity
+                    style={styles.categoryButton}
+                    onPress={() => setSelectedCategory(category)}
+                  >
+                    <View style={styles.categoryContent}>
+                      <Folder 
+                        size={16} 
+                        color={colors.primary.main} 
+                      />
+                      <Text style={styles.categoryText}>
+                        {category}
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+                )}
+              </View>
             ))}
           </ScrollView>
         </View>
@@ -254,17 +271,19 @@ const styles = StyleSheet.create({
     marginBottom: spacing.md,
   } as TextStyle,
   categoryButton: {
-    backgroundColor: 'white',
-    borderRadius: borderRadius.lg,
     marginRight: spacing.sm,
+    borderRadius: borderRadius.lg,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
+    backgroundColor: 'white',
   } as ViewStyle,
   categoryButtonActive: {
-    backgroundColor: colors.primary.main,
+    borderRadius: borderRadius.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
   } as ViewStyle,
   categoryContent: {
     flexDirection: 'row',
