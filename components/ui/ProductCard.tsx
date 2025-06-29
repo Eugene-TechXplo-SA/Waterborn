@@ -52,10 +52,16 @@ export default function ProductCard({
           <View style={styles.actions}>
             {!admin && onAddToCart && (
               <TouchableOpacity 
-                style={styles.addButton}
                 onPress={() => onAddToCart(product)}
               >
-                <Plus size={18} color={colors.neutral.white} />
+                <LinearGradient
+                  colors={["#2563eb", "#06b6d4"]}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 0 }}
+                  style={styles.addButton}
+                >
+                  <Plus size={18} color={colors.neutral.white} />
+                </LinearGradient>
               </TouchableOpacity>
             )}
             
@@ -132,12 +138,11 @@ const styles = StyleSheet.create({
     marginLeft: spacing.xs,
   } as ViewStyle,
   addButton: {
-    backgroundColor: colors.primary.main,
     borderRadius: borderRadius.round,
-    padding: spacing.xs,
     width: 30,
     height: 30,
     alignItems: 'center',
     justifyContent: 'center',
+    padding: spacing.xs,
   } as ViewStyle,
 });
