@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     borderRadius: borderRadius.lg,
   } as ViewStyle,
   activeTabGradient: {
-    paddingVertical: 10,
+    paddingVertical: 5,
     paddingHorizontal: spacing.md,
     borderRadius: borderRadius.lg,
     alignItems: 'center',
