@@ -277,6 +277,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 1,
     backgroundColor: 'white',
+    bottom: 15
   } as ViewStyle,
   categoryButtonActive: {
     paddingHorizontal: spacing.md,
