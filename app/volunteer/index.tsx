@@ -113,7 +113,7 @@ export default function VolunteerScreen() {
                     source={{
                       uri: role.name === 'Judge'
                         ? 'https://579f1bce31b6e1ba6001135c3c3b1400.cdn.bubble.io/cdn-cgi/image/w=512,h=621,f=auto,dpr=2.5,fit=contain/d229/f1727859702332x841977777358280000/officials.webp'
-                        : 'https://images.pexels.com/photos/1263349/pexels-photo-1263349.jpeg?auto=compress&cs=tinysrgb&w=800'
+                        : 'https://www.chorleymarlins.org.uk/uploads/9/8/2/9/9829061/timekeeper-blog_orig.jpg'
                     }}
                     style={styles.roleImage}
                     resizeMode="cover"
