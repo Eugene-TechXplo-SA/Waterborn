@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
   },
   benefitCard: {
     backgroundColor: 'white',
-    padding: spacing.lg,
+    paddingHorizontal: spacing.lg,
     borderRadius: borderRadius.lg,
     alignItems: 'center',
     width: '30%',
