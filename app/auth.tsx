@@ -27,6 +27,37 @@ export default function AuthScreen() {
     }
   };
 
+  const TabButton = ({ tabType, title }: { tabType: 'login' | 'signup', title: string }) => {
+    const isActive = activeTab === tabType;
+    
+    if (isActive) {
+      return (
+        <TouchableOpacity 
+          style={styles.tab} 
+          onPress={() => setActiveTab(tabType)}
+        >
+          <LinearGradient
+            colors={["#2563eb", "#06b6d4"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={styles.activeTabGradient}
+          >
+            <Text style={[styles.tabText, styles.activeTabText]}>{title}</Text>
+          </LinearGradient>
+        </TouchableOpacity>
+      );
+    }
+    
+    return (
+      <TouchableOpacity 
+        style={styles.tab} 
+        onPress={() => setActiveTab(tabType)}
+      >
+        <Text style={styles.tabText}>{title}</Text>
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <KeyboardAvoidingView 
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -39,19 +70,8 @@ export default function AuthScreen() {
       </View>
 
       <View style={styles.tabContainer}>
-         
-        <TouchableOpacity 
-          style={[styles.tab, activeTab === 'login' && styles.activeTab]} 
-          onPress={() => setActiveTab('login')}
-        >
-          <Text style={[styles.tabText, activeTab === 'login' && styles.activeTabText]}>Login</Text>
-        </TouchableOpacity>
-        <TouchableOpacity 
-          style={[styles.tab, activeTab === 'signup' && styles.activeTab]} 
-          onPress={() => setActiveTab('signup')}
-        >
-          <Text style={[styles.tabText, activeTab === 'signup' && styles.activeTabText]}>Sign Up</Text>
-        </TouchableOpacity>
+        <TabButton tabType="login" title="Login" />
+        <TabButton tabType="signup" title="Sign Up" />
       </View>
 
       <View style={styles.form}>
@@ -94,23 +114,20 @@ export default function AuthScreen() {
           </View>
         )}
 
-     
         <LinearGradient
-        colors={["#2563eb", "#06b6d4"]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 0 }}
-        style={{ padding: 20, marginTop: -10, borderRadius: 10, width: '60%', alignItems: 'center', marginLeft: 60 }}
-        className="shadow-2xl relative"
-      >
-       
-              <TouchableOpacity  onPress={handleSubmit}>
-          <Text style={styles.buttonText}>
-            {activeTab === 'login' ? 'Login' : 'Sign Up'}
-          </Text>
-        </TouchableOpacity>
-           
-      
-      </LinearGradient>
+          colors={["#2563eb", "#06b6d4"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          style={{ padding: 20, marginTop: -10, borderRadius: 10, width: '60%', alignItems: 'center', marginLeft: 60 }}
+          className="shadow-2xl relative"
+        >
+          <TouchableOpacity onPress={handleSubmit}>
+            <Text style={styles.buttonText}>
+              {activeTab === 'login' ? 'Login' : 'Sign Up'}
+            </Text>
+          </TouchableOpacity>
+        </LinearGradient>
+
         {activeTab === 'login' && (
           <TouchableOpacity style={styles.forgotPassword}>
             <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
@@ -136,13 +153,13 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: colors.text.header,
     marginBottom: spacing.sm,
-    bottom:spacing.xxxl,
+    bottom: spacing.xxxl,
   } as TextStyle,
   subtitle: {
     fontSize: typography.fontSizes.md,
     color: colors.text.primary,
     opacity: 0.8,
-    bottom:spacing.xxxl,
+    bottom: spacing.xxxl,
     fontWeight: 'bold',
   } as TextStyle,
   tabContainer: {
@@ -160,26 +177,31 @@ const styles = StyleSheet.create({
   } as ViewStyle,
   tab: {
     flex: 1,
+    borderRadius: borderRadius.lg,
+  } as ViewStyle,
+  activeTabGradient: {
     paddingVertical: spacing.md,
     paddingHorizontal: spacing.md,
     borderRadius: borderRadius.lg,
-  } as ViewStyle,
-  activeTab: {
-    backgroundColor: colors.primary.main,
+    alignItems: 'center',
+    justifyContent: 'center',
   } as ViewStyle,
   tabText: {
     textAlign: 'center',
     color: colors.primary.main,
     fontSize: typography.fontSizes.md,
     fontWeight: '600',
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.md,
   } as TextStyle,
   activeTabText: {
     color: colors.neutral.white,
+    padding: 0, // Remove padding since it's handled by the gradient container
   } as TextStyle,
   form: {
     padding: spacing.xl,
     marginTop: spacing.xl,
-    bottom:spacing.xl,
+    bottom: spacing.xl,
   } as ViewStyle,
   inputContainer: {
     marginBottom: spacing.lg,
@@ -228,4 +250,4 @@ const styles = StyleSheet.create({
     width: 230,
     height: 230,
   } as ImageStyle,
-}); 
+});
