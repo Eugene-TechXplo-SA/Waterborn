@@ -265,7 +265,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: borderRadius.lg,
     alignItems: 'center',
-    width: '34%',
+    width: '33%',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
