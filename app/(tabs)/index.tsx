@@ -32,14 +32,14 @@ export default function App() {
       title: 'Training Schedule',
       icon: <Building size={28} color="white" />,
       gradient: ['#22d3ee', '#3b82f6', '#2563eb'] as const, // cyan-400, blue-500, blue-600
-      href: '/training/index'
+      href: '/training'
     },
     {
       id: 'documents',
       title: 'General Documents',
       icon: <FileText size={28} color="white" />,
       gradient: ['#34d399', '#14b8a6', '#0891b2'] as const, // emerald-400, teal-500, cyan-600
-      href: '/documents/index'
+      href: '/documents'
     },
     {
       id: 'marketplace',
@@ -47,14 +47,14 @@ export default function App() {
       subtitle: '(Kit)',
       icon: <ShoppingBag size={28} color="white" />,
       gradient: ['#a78bfa', '#8b5cf6', '#6366f1'] as const, // violet-400, purple-500, indigo-600
-      href: '/marketplace/index'
+      href: '/marketplace'
     },
     {
       id: 'gala',
       title: 'Gala Registration',
       icon: <Trophy size={28} color="white" />,
       gradient: ['#fbbf24', '#f97316', '#ef4444'] as const, // amber-400, orange-500, red-500
-      href: '/gala/index'
+      href: '/gala'
     },
     {
       id: 'billing',
@@ -62,7 +62,7 @@ export default function App() {
       subtitle: 'Coming Soon',
       icon: <Receipt size={28} color="white" />,
       gradient: ['#cbd5e1', '#e5e7eb'] as const, // slate-300, slate-200
-      href: '/bill/index',
+      href: '/bill',
       isComingSoon: true
     },
     {
@@ -70,7 +70,7 @@ export default function App() {
       title: 'Volunteer Registration',
       icon: <Clock size={28} color="white" />,
       gradient: ['#f472b6', '#f43f5e', '#ef4444'] as const, // pink-400, rose-500, red-500
-      href: '/volunteer/index'
+      href: '/volunteer'
     }
   ];
 
@@ -80,7 +80,7 @@ export default function App() {
       title: 'Admin Settings',
       icon: <Settings size={28} color="white" />,
       gradient: ['#374151', '#111827'] as const, // gray-700, gray-900
-      href: '/admin/index'
+      href: '/admin'
     });
   }
 
