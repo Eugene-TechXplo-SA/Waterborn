@@ -219,13 +219,4 @@ export default function App() {
       </ScrollView>
     </SafeAreaView>
   );
-}
-                </TouchableOpacity>
-              );
-            })} */}
-          </View>
-        </View>
-      </View>
-    </SafeAreaView>
-  );
 } 
