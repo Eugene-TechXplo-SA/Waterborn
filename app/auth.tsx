@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, ViewStyle, TextStyle, Image, ImageStyle } from 'react-native';
 import { colors, spacing, typography, borderRadius } from '@/utils/theme';
 import { useRouter } from 'expo-router';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function AuthScreen() {
   const [activeTab, setActiveTab] = useState<'login' | 'signup'>('login');
@@ -31,11 +32,19 @@ export default function AuthScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}
     >
-      <View style={styles.header}>
-        <Image source={require('@/assets/images/Waterborn (1).png')} style={styles.logo} />
-        <Text style={styles.title}>Waterborn</Text>
-        {/* <Text style={styles.subtitle}>Welcome to your swimming community</Text> */}
-      </View>
+      <LinearGradient
+        colors={["#2563eb", "#06b6d4"]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
+        style={styles.header}
+      >
+        <View style={styles.headerOverlay} />
+        <View style={styles.headerContent}>
+          <Image source={require('@/assets/images/Waterborn (1).png')} style={styles.logo} />
+          <Text style={styles.title}>Waterborn</Text>
+          <Text style={styles.subtitle}>Welcome to your swimming community</Text>
+        </View>
+      </LinearGradient>
 
       <View style={styles.tabContainer}>
         <TouchableOpacity 
@@ -111,32 +120,55 @@ export default function AuthScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background.default,
+    backgroundColor: '#f8fafc',
   } as ViewStyle,
   header: {
-    paddingTop: 10,
-    paddingBottom: spacing.sm,
+    paddingTop: 60,
+    paddingBottom: spacing.xl,
     alignItems: 'center',
+    position: 'relative',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 8,
+  } as ViewStyle,
+  headerOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.05)',
+  } as ViewStyle,
+  headerContent: {
+    alignItems: 'center',
+    zIndex: 1,
   } as ViewStyle,
   title: {
     fontSize: typography.fontSizes.xxxl,
     fontWeight: '700',
-    color: colors.text.header,
+    color: colors.neutral.white,
     marginBottom: spacing.sm,
-    bottom:spacing.xxxl,
+    textShadowColor: 'rgba(0, 0, 0, 0.3)',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 4,
   } as TextStyle,
   subtitle: {
     fontSize: typography.fontSizes.md,
-    color: colors.text.primary,
-    opacity: 0.8,
-    bottom:spacing.xxxl,
+    color: colors.neutral.white,
+    opacity: 0.9,
     fontWeight: 'bold',
+    textAlign: 'center',
+    textShadowColor: 'rgba(0, 0, 0, 0.3)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 2,
   } as TextStyle,
   tabContainer: {
     flexDirection: 'row',
     backgroundColor: colors.neutral.white,
     marginHorizontal: spacing.xl,
-    marginTop: -spacing.xxxl,
+    marginTop: -spacing.xl,
     borderRadius: borderRadius.lg,
     padding: spacing.xs,
     shadowColor: colors.neutral.black,
@@ -166,7 +198,6 @@ const styles = StyleSheet.create({
   form: {
     padding: spacing.xl,
     marginTop: spacing.xl,
-    bottom:spacing.xl,
   } as ViewStyle,
   inputContainer: {
     marginBottom: spacing.lg,
@@ -214,5 +245,6 @@ const styles = StyleSheet.create({
   logo: {
     width: 230,
     height: 230,
+    marginBottom: spacing.md,
   } as ImageStyle,
 }); 
