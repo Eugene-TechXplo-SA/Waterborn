@@ -109,18 +109,7 @@ export default function MarketplaceScreen() {
                 Get your official Waterborn gear and equipment
               </Text>
               
-              <View style={styles.statsContainer}>
-                {stats.map((stat, index) => (
-                  <View key={index} style={styles.statCard}>
-                    <LinearGradient
-                      colors={stat.gradient}
-                      style={styles.statIcon}
-                    >
-                      {stat.icon}
-                    </LinearGradient>
-                    <Text style={styles.statValue}>{stat.value}</Text>
-                    <Text style={styles.statLabel}>{stat.label}</Text>
-                  </View>
+             
                 ))}
               </View>
             </View>
