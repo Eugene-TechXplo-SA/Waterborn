@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, ViewStyle, TextStyle, Image, ImageStyle } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, ViewStyle, TextStyle, Image, ImageStyle} from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { colors, spacing, typography, borderRadius } from '@/utils/theme';
 import { useRouter } from 'expo-router';
 
@@ -38,6 +39,7 @@ export default function AuthScreen() {
       </View>
 
       <View style={styles.tabContainer}>
+         
         <TouchableOpacity 
           style={[styles.tab, activeTab === 'login' && styles.activeTab]} 
           onPress={() => setActiveTab('login')}
@@ -97,7 +99,22 @@ export default function AuthScreen() {
             {activeTab === 'login' ? 'Login' : 'Sign Up'}
           </Text>
         </TouchableOpacity>
-
+             <LinearGradient
+        colors={["#2563eb", "#06b6d4"]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
+        style={{ paddingTop: 25, paddingBottom: 14, marginTop: -10 }}
+        className="shadow-2xl relative"
+      >
+       
+              <TouchableOpacity  onPress={handleSubmit}>
+          <Text style={styles.buttonText}>
+            {activeTab === 'login' ? 'Login' : 'Sign Up'}
+          </Text>
+        </TouchableOpacity>
+           
+      
+      </LinearGradient>
         {activeTab === 'login' && (
           <TouchableOpacity style={styles.forgotPassword}>
             <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
