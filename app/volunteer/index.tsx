@@ -376,6 +376,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     flex: 1,
     marginLeft: spacing.sm,
+    borderRadius: 5,
   },
   registerGradient: {
     flexDirection: 'row',
