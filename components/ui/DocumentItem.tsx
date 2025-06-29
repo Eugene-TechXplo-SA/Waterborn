@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { colors, borderRadius, spacing, typography } from '@/utils/theme';
 import { FileText, Download, Share2, Trash, CreditCard as Edit } from 'lucide-react-native';
 import { Document } from '@/types';
@@ -30,9 +31,14 @@ export default function DocumentItem({
       onPress={() => onView(document)}
       activeOpacity={0.7}
     >
-      <View style={styles.iconContainer}>
-        <FileText size={24} color={colors.primary.main} />
-      </View>
+      <LinearGradient
+        colors={['#34d399', '#14b8a6', '#0891b2']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={styles.iconContainer}
+      >
+        <FileText size={24} color="white" />
+      </LinearGradient>
       
       <View style={styles.contentContainer}>
         <Text style={styles.title} numberOfLines={1}>
@@ -99,9 +105,12 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   iconContainer: {
-    backgroundColor: colors.primary.light,
     padding: spacing.sm,
     borderRadius: borderRadius.sm,
+    width: 48,
+    height: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   contentContainer: {
     flex: 1,
