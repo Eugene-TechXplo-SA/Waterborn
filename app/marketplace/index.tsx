@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
     color: colors.text.primary,
   } as TextStyle,
   categories: {
-    marginBottom: 15,
+    marginBottom:5,
     bottom: 15
   } as ViewStyle,
   categoryButton: {
