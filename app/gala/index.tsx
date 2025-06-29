@@ -5,7 +5,7 @@ import { colors, spacing, typography, borderRadius } from '@/utils/theme';
 import { galas } from '@/utils/mockData';
 import { Gala } from '@/types';
 import { router } from 'expo-router';
-import { Calendar, MapPin, FileText, Users, Clock, Star } from 'lucide-react-native';
+import { Calendar, MapPin, FileText, Users, Clock, Star, Trophy } from 'lucide-react-native';
 import { isAdmin } from '@/utils/auth';
 import AdminFab from '@/components/ui/AdminFab';
 import CustomHeader from '@/components/ui/CustomHeader';
