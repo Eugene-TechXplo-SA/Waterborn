@@ -130,19 +130,203 @@ export default function MarketplaceScreen() {
           <View style={styles.categories}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               {categories.map((category, index) => (
-                <TouchableOpacity
+                <View
                   key={index}
-                  style={[
-                    styles.categoryButton,
-                    selectedCategory === category && styles.categoryButtonActive,
-                  ]}
-                  onPress={() => setSelectedCategory(category)}
                 >
-                  <Text
-                    style={[
-                      styles.categoryText,
-                      selectedCategory === category && styles.categoryTextActive,
-                    ]}
+                  {selectedCategory === category ? (
+                    <TouchableOpacity
+                      style={styles.categoryButton}
+                      onPress={() => setSelectedCategory(category)}
+                    >
+                      <LinearGradient
+                        colors={["#2563eb", "#06b6d4"]}
+                        start={{ x: 0, y: 0 }}
+                        end={{ x: 1, y: 0 }}
+                        style={styles.categoryButtonActive}
+                      >
+                        <Text style={styles.categoryTextActive}>
+                          {category}
+                        </Text>
+                      </LinearGradient>
+                    </TouchableOpacity>
+                  ) : (
+                    <TouchableOpacity
+                      style={styles.categoryButton}
+                      onPress={() => setSelectedCategory(category)}
+                    >
+                      <Text style={styles.categoryText}>
+                        {category}
+                      </Text>
+                    </TouchableOpacity>
+                  )}
+                </View>
+              ))}
+            </ScrollView>
+          </View>
+        </View>
+        
+        <View style={styles.productsSection}>
+          <Text style={styles.sectionTitle}>
+            {selectedCategory && selectedCategory !== 'All' ? selectedCategory : 'All Products'}
+          </Text>
+          
+          <FlatList
+            data={filteredProducts}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+            numColumns={2}
+            columnWrapperStyle={styles.productRow}
+            scrollEnabled={false}
+            ListEmptyComponent={
+              <View style={styles.emptyContainer}>
+                <Text style={styles.emptyText}>No products found</Text>
+              </View>
+            }
+          />
+        </View>
+      </ScrollView>
+      
+      {admin && <AdminFab onPress={handleAddNewProduct} />}
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F0F9FF',
+  } as ViewStyle,
+  content: {
+    flex: 1,
+  } as ViewStyle,
+  heroSection: {
+    marginHorizontal: spacing.md,
+    marginBottom: spacing.lg,
+    borderRadius: borderRadius.lg,
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 4,
+  } as ViewStyle,
+  heroGradient: {
+    padding: spacing.lg,
+  } as ViewStyle,
+  heroContent: {
+    alignItems: 'center',
+  } as ViewStyle,
+  heroTitle: {
+    fontSize: typography.fontSizes.xxl,
+    fontWeight: 'bold',
+    color: 'white',
+    marginBottom: spacing.sm,
+  } as TextStyle,
+  heroSubtitle: {
+    fontSize: typography.fontSizes.md,
+    color: 'white',
+    textAlign: 'center',
+    marginBottom: spacing.lg,
+    opacity: 0.9,
+  } as TextStyle,
+  statsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+  } as ViewStyle,
+  statCard: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    padding: spacing.md,
+    borderRadius: borderRadius.md,
+    minWidth: 80,
+  } as ViewStyle,
+  searchSection: {
+    padding: spacing.md,
+    marginBottom: spacing.md,
+  } as ViewStyle,
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    borderRadius: borderRadius.lg,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    marginBottom: spacing.md,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+    bottom: 15,
+  } as ViewStyle,
+  searchIcon: {
+    marginRight: spacing.sm,
+  } as ViewStyle,
+  searchInput: {
+    flex: 1,
+    padding: spacing.sm,
+    fontFamily: 'Inter-Regular',
+    fontSize: typography.fontSizes.md,
+    color: colors.text.primary,
+  } as TextStyle,
+  categories: {
+    marginBottom: spacing.sm,
+  } as ViewStyle,
+  categoryButton: {
+    marginRight: spacing.sm,
+    borderRadius: borderRadius.round,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 1,
+    backgroundColor: 'white',
+  } as ViewStyle,
+  categoryButtonActive: {
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: borderRadius.round,
+    alignItems: 'center',
+    justifyContent: 'center',
+  } as ViewStyle,
+  categoryText: {
+    color: colors.text.primary,
+    fontWeight: '500',
+    fontSize: typography.fontSizes.sm,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+  } as TextStyle,
+  categoryTextActive: {
+    color: 'white',
+    fontWeight: '500',
+    fontSize: typography.fontSizes.sm,
+  } as TextStyle,
+  productsSection: {
+    padding: spacing.md,
+  } as ViewStyle,
+  sectionTitle: {
+    fontSize: typography.fontSizes.lg,
+    fontWeight: 'bold',
+    color: colors.text.primary,
+    marginBottom: spacing.md,
+  } as TextStyle,
+  productRow: {
+    justifyContent: 'space-between',
+  } as ViewStyle,
+  emptyContainer: {
+    alignItems: 'center',
+    padding: spacing.xl,
+  } as ViewStyle,
+  emptyText: {
+    textAlign: 'center',
+    color: colors.text.secondary,
+    fontSize: typography.fontSizes.md,
+  } as TextStyle,
+  cartButton: {
+    padding: spacing.xs,
+  } as ViewStyle,
+});
                   >
                     {category}
                   </Text>
