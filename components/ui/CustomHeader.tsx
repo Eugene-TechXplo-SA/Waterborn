@@ -19,7 +19,7 @@ export default function CustomHeader({ title, showBack = true, rightComponent }:
         colors={["#2563eb", "#06b6d4"]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}
-        style={{ paddingTop: 25, paddingBottom: 14, marginTop: -40 }}
+        style={{ paddingTop: 55, paddingBottom: 14, marginTop: -40 }}
         className="shadow-2xl relative"
       >
        
