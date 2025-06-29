@@ -228,24 +228,6 @@ const styles = StyleSheet.create({
     borderRadius: borderRadius.md,
     minWidth: 80,
   } as ViewStyle,
-  statIcon: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: spacing.sm,
-  } as ViewStyle,
-  statValue: {
-    fontSize: typography.fontSizes.lg,
-    fontWeight: 'bold',
-    color: 'white',
-  } as TextStyle,
-  statLabel: {
-    fontSize: typography.fontSizes.sm,
-    color: 'white',
-    opacity: 0.8,
-  } as TextStyle,
   searchSection: {
     padding: spacing.md,
     marginBottom: spacing.md,
