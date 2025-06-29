@@ -213,6 +213,13 @@ export default function App() {
               </LinearGradient>
               <Text className="text-2xl font-bold text-gray-900">{stat.value}</Text>
               <Text className="text-gray-600 text-sm font-medium">{stat.label}</Text>
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
                 </TouchableOpacity>
               );
             })} */}
