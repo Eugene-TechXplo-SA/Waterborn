@@ -213,35 +213,6 @@ export default function App() {
               </LinearGradient>
               <Text className="text-2xl font-bold text-gray-900">{stat.value}</Text>
               <Text className="text-gray-600 text-sm font-medium">{stat.label}</Text>
-            </View>
-          ))}
-        </View>
-      </ScrollView>
-
-      {/* Bottom Navigation */}
-      <View className="absolute bottom-0 left-0 right-0 bg-white/95 border-t border-gray-200/50 shadow-2xl">
-        <View className="px-4">
-          <View className="flex-row items-center justify-around h-20">
-            {/* navItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = activeNav === item.id;
-              
-              return (
-                <TouchableOpacity
-                  key={item.id}
-                  onPress={() => {
-                    setActiveNav(item.id);
-                    navigation.navigate(item.href as never);
-                  }}
-                  className={`flex-col items-center justify-center space-y-1 px-4 py-2 rounded-2xl active:scale-95 ${isActive ? 'text-blue-600 bg-blue-50 shadow-lg scale-110' : 'text-gray-600'}`}
-                >
-                  <Icon className={`w-6 h-6 ${isActive ? 'scale-110 text-blue-600' : 'text-gray-600'}`} />
-                  <Text className={`text-xs font-semibold ${isActive ? 'font-bold text-blue-600' : 'text-gray-600'}`}>
-                    {item.label}
-                  </Text>
-                  {isActive && (
-                    <View className="w-1 h-1 bg-blue-600 rounded-full mt-1" />
-                  )}
                 </TouchableOpacity>
               );
             })} */}
