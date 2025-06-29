@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, Image, ViewStyle, TextStyle, ImageStyle } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { colors, borderRadius, spacing, typography, shadows } from '@/utils/theme';
 import { Product } from '@/types';
 import { CreditCard as Edit, Trash, Plus } from 'lucide-react-native';
@@ -39,9 +40,18 @@ export default function ProductCard({
           {product.name}
         </Text>
         
-        <Text style={styles.price}>
-          R{product.price.toFixed(2)}
-        </Text>
+        <View style={styles.priceContainer}>
+          <LinearGradient
+            colors={["#2563eb", "#06b6d4"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={styles.priceGradient}
+          >
+            <Text style={styles.price}>
+              R{product.price.toFixed(2)}
+            </Text>
+          </LinearGradient>
+        </View>
         
         <View style={styles.footer}>
           <Text style={styles.category}>
@@ -113,6 +123,15 @@ const styles = StyleSheet.create({
     color: colors.primary.main,
     marginVertical: spacing.xs,
   } as TextStyle,
+  priceContainer: {
+    alignSelf: 'flex-start',
+    borderRadius: borderRadius.sm,
+    overflow: 'hidden',
+    marginVertical: spacing.xs,
+  } as ViewStyle,
+  priceGradient: {
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
   category: {
     fontSize: typography.fontSizes.sm,
     color: colors.text.secondary,
