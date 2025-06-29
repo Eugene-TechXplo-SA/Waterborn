@@ -301,7 +301,7 @@ const styles = StyleSheet.create({
     color: 'white',
   } as TextStyle,
   productsSection: {
-    padding: 5,
+    padding: spacing.md,
   } as ViewStyle,
   sectionTitle: {
     fontSize: typography.fontSizes.lg,
