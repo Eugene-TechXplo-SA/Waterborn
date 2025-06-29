@@ -267,6 +267,7 @@ const styles = StyleSheet.create({
   } as TextStyle,
   categories: {
     marginBottom: spacing.sm,
+    bottom: 15
   } as ViewStyle,
   categoryButton: {
     marginRight: spacing.sm,
@@ -277,7 +278,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 1,
     backgroundColor: 'white',
-    bottom: 15
+    
   } as ViewStyle,
   categoryButtonActive: {
     paddingHorizontal: spacing.md,
