@@ -249,5 +249,6 @@ const styles = StyleSheet.create({
   logo: {
     width: 230,
     height: 230,
+    marginTop: 10,
   } as ImageStyle,
 });
