@@ -94,12 +94,8 @@ export default function AuthScreen() {
           </View>
         )}
 
-        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-          <Text style={styles.buttonText}>
-            {activeTab === 'login' ? 'Login' : 'Sign Up'}
-          </Text>
-        </TouchableOpacity>
-             <LinearGradient
+     
+        <LinearGradient
         colors={["#2563eb", "#06b6d4"]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}
