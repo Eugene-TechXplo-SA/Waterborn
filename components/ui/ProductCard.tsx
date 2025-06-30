@@ -37,10 +37,8 @@ export default function ProductCard({
   };
 
   return (
-    <TouchableOpacity 
+    <View 
       style={styles.container}
-      onPress={() => onPress(product)}
-      activeOpacity={0.8}
     >
       <Image
         source={{ uri: product.image }}
@@ -66,6 +64,7 @@ export default function ProductCard({
             {!admin && (
               <TouchableOpacity 
                 onPress={handleAddToCart}
+                activeOpacity={0.7}
               >
                 <LinearGradient
                   colors={["#2563eb", "#06b6d4"]}
@@ -82,6 +81,7 @@ export default function ProductCard({
               <TouchableOpacity 
                 style={styles.iconButton}
                 onPress={() => onEdit(product)}
+                activeOpacity={0.7}
               >
                 <Edit size={18} color={colors.accent.dark} />
               </TouchableOpacity>
@@ -91,6 +91,7 @@ export default function ProductCard({
               <TouchableOpacity 
                 style={styles.iconButton}
                 onPress={() => onDelete(product)}
+                activeOpacity={0.7}
               >
                 <Trash size={18} color={colors.error} />
               </TouchableOpacity>
@@ -98,7 +99,7 @@ export default function ProductCard({
           </View>
         </View>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 }
 
