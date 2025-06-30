@@ -10,11 +10,13 @@ import { isAdmin } from '@/utils/auth';
 import AdminFab from '@/components/ui/AdminFab';
 import { Search, ShoppingCart, TrendingUp, Package, Star } from 'lucide-react-native';
 import CustomHeader from '@/components/ui/CustomHeader';
+import { useCartStore } from '@/utils/cartStore';
 
 export default function MarketplaceScreen() {
   const admin = isAdmin();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const itemCount = useCartStore(state => state.getItemCount());
   
   const categories = ['All', ...new Set(products.map(product => product.category))];
   
@@ -31,10 +33,6 @@ export default function MarketplaceScreen() {
       pathname: '/marketplace',
       params: { productId: product.id },
     });
-  };
-
-  const handleAddToCart = (product: Product) => {
-    alert(`${product.name} added to cart`);
   };
 
   const handleEditProduct = (product: Product) => {
@@ -74,7 +72,6 @@ export default function MarketplaceScreen() {
     <ProductCard
       product={item}
       onPress={handleProductPress}
-      onAddToCart={handleAddToCart}
       onEdit={admin ? handleEditProduct : undefined}
       onDelete={admin ? handleDeleteProduct : undefined}
     />
@@ -91,6 +88,11 @@ export default function MarketplaceScreen() {
             onPress={() => router.push('/marketplace/cart')}
           >
             <ShoppingCart size={24} color="white" />
+            {itemCount > 0 && (
+              <View style={styles.cartBadge}>
+                <Text style={styles.cartBadgeText}>{itemCount}</Text>
+              </View>
+            )}
           </TouchableOpacity>
         )}
       />
@@ -323,5 +325,23 @@ const styles = StyleSheet.create({
   } as TextStyle,
   cartButton: {
     padding: spacing.xs,
+    position: 'relative',
   } as ViewStyle,
+  cartBadge: {
+    position: 'absolute',
+    top: -2,
+    right: -2,
+    backgroundColor: colors.error,
+    borderRadius: borderRadius.round,
+    minWidth: 18,
+    height: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 4,
+  } as ViewStyle,
+  cartBadgeText: {
+    color: 'white',
+    fontSize: 12,
+    fontWeight: 'bold',
+  } as TextStyle,
 });

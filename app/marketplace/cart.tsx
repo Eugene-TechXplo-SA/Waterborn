@@ -6,60 +6,18 @@ import { router } from 'expo-router';
 import CustomHeader from '@/components/ui/CustomHeader';
 import Button from '@/components/ui/Button';
 import { Minus, Plus, Trash2, ShoppingBag, CreditCard } from 'lucide-react-native';
-
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  size: string;
-  quantity: number;
-}
-
-// Mock cart data - in a real app this would come from state management
-const mockCartItems: CartItem[] = [
-  {
-    id: '1',
-    name: 'Club Hoodie',
-    price: 45.99,
-    image: 'https://publicpool.co/cdn/shop/files/FS_HoodieBlueBack.jpg?v=16929079250',
-    size: 'M',
-    quantity: 1,
-  },
-  {
-    id: '2',
-    name: 'Racing Goggles',
-    price: 29.99,
-    image: 'https://zone3.com/cdn/shop/files/Volare_Streamline_Racing_Swim_Goggles_-_ZONE3_UK-597804_1000x@2x.jpg?v=1717521870',
-    size: 'One Size',
-    quantity: 2,
-  },
-  {
-    id: '3',
-    name: 'Swim Cap',
-    price: 12.99,
-    image: 'https://static.dezeen.com/uploads/2022/09/soul-cap-adidas-sportswear-fashion-swimming-cap_dezeen_2364_col_hero2.jpg',
-    size: 'Adult',
-    quantity: 1,
-  },
-];
+import { useCartStore, CartItem } from '@/utils/cartStore';
 
 export default function CartScreen() {
-  const [cartItems, setCartItems] = useState<CartItem[]>(mockCartItems);
+  const { 
+    items: cartItems, 
+    updateQuantity, 
+    removeItem: removeFromStore, 
+    clearCart,
+    getSubtotal 
+  } = useCartStore();
 
-  const updateQuantity = (id: string, newQuantity: number) => {
-    if (newQuantity === 0) {
-      removeItem(id);
-      return;
-    }
-    setCartItems(items =>
-      items.map(item =>
-        item.id === id ? { ...item, quantity: newQuantity } : item
-      )
-    );
-  };
-
-  const removeItem = (id: string) => {
+  const handleRemoveItem = (id: string) => {
     Alert.alert(
       'Remove Item',
       'Are you sure you want to remove this item from your cart?',
@@ -69,23 +27,19 @@ export default function CartScreen() {
           text: 'Remove',
           style: 'destructive',
           onPress: () => {
-            setCartItems(items => items.filter(item => item.id !== id));
+            removeFromStore(id);
           },
         },
       ]
     );
   };
 
-  const calculateSubtotal = () => {
-    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
-  };
-
   const calculateTax = () => {
-    return calculateSubtotal() * 0.15; // 15% VAT
+    return getSubtotal() * 0.15; // 15% VAT
   };
 
   const calculateTotal = () => {
-    return calculateSubtotal() + calculateTax();
+    return getSubtotal() + calculateTax();
   };
 
   const handleCheckout = () => {
@@ -99,7 +53,7 @@ export default function CartScreen() {
           onPress: () => {
             // In a real app, this would navigate to payment processing
             Alert.alert('Success', 'Order placed successfully!');
-            setCartItems([]);
+            clearCart();
           },
         },
       ]
@@ -121,7 +75,7 @@ export default function CartScreen() {
       <View style={styles.itemActions}>
         <TouchableOpacity
           style={styles.removeButton}
-          onPress={() => removeItem(item.id)}
+          onPress={() => handleRemoveItem(item.id)}
         >
           <Trash2 size={18} color={colors.error} />
         </TouchableOpacity>
@@ -206,7 +160,7 @@ export default function CartScreen() {
           >
             <View style={styles.summaryRow}>
               <Text style={styles.summaryLabel}>Subtotal</Text>
-              <Text style={styles.summaryValue}>R{calculateSubtotal().toFixed(2)}</Text>
+              <Text style={styles.summaryValue}>R{getSubtotal().toFixed(2)}</Text>
             </View>
             
             <View style={styles.summaryRow}>

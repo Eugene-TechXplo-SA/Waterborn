@@ -1,27 +1,40 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Image, ViewStyle, TextStyle, ImageStyle } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Image, ViewStyle, TextStyle, ImageStyle, Alert } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { colors, borderRadius, spacing, typography, shadows } from '@/utils/theme';
 import { Product } from '@/types';
 import { CreditCard as Edit, Trash, Plus } from 'lucide-react-native';
 import { isAdmin } from '@/utils/auth';
+import { useCartStore } from '@/utils/cartStore';
 
 interface ProductCardProps {
   product: Product;
   onPress: (product: Product) => void;
   onEdit?: (product: Product) => void;
   onDelete?: (product: Product) => void;
-  onAddToCart?: (product: Product) => void;
 }
 
 export default function ProductCard({ 
   product, 
   onPress, 
   onEdit, 
-  onDelete,
-  onAddToCart
+  onDelete
 }: ProductCardProps) {
   const admin = isAdmin();
+  const addItem = useCartStore(state => state.addItem);
+
+  const handleAddToCart = () => {
+    // Find the first available size
+    const availableSize = product.sizes.find(size => size.inStock);
+    
+    if (!availableSize) {
+      Alert.alert('Out of Stock', 'This item is currently out of stock.');
+      return;
+    }
+    
+    addItem(product, availableSize.name);
+    Alert.alert('Added to Cart', `${product.name} (${availableSize.name}) has been added to your cart.`);
+  };
 
   return (
     <TouchableOpacity 
@@ -50,9 +63,9 @@ export default function ProductCard({
           </Text>
           
           <View style={styles.actions}>
-            {!admin && onAddToCart && (
+            {!admin && (
               <TouchableOpacity 
-                onPress={() => onAddToCart(product)}
+                onPress={handleAddToCart}
               >
                 <LinearGradient
                   colors={["#2563eb", "#06b6d4"]}
