@@ -88,7 +88,7 @@ export default function MarketplaceScreen() {
         rightComponent={!admin && (
           <TouchableOpacity 
             style={styles.cartButton}
-            onPress={() => router.push({ pathname: '/marketplace', params: { showCart: 'true' } })}
+            onPress={() => router.push('/marketplace/cart')}
           >
             <ShoppingCart size={24} color="white" />
           </TouchableOpacity>
