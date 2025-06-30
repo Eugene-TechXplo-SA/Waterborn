@@ -10,5 +10,6 @@ config.resolver.unstable_enablePackageExports = true;
 
 // Ensure proper Babel transformation for import.meta syntax
 config.transformer.babelTransformerPath = require.resolve("metro-react-native-babel-transformer");
+config.transformer.unstable_transformProfile = 'web';
 
 module.exports = withNativeWind(config, { input: "./global.css" });
