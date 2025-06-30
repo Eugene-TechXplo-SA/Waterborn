@@ -8,4 +8,7 @@ const config = getDefaultConfig(__dirname);
 config.resolver.sourceExts.push("mjs");
 config.resolver.unstable_enablePackageExports = true;
 
-module.exports = withNativeWind(config, { input: "./global.css" }); 
+// Ensure proper Babel transformation for import.meta syntax
+config.transformer.babelTransformerPath = require.resolve("metro-react-native-babel-transformer");
+
+module.exports = withNativeWind(config, { input: "./global.css" });
