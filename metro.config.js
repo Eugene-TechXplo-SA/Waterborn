@@ -6,5 +6,6 @@ const config = getDefaultConfig(__dirname);
 
 // Add support for .mjs files to resolve import.meta syntax errors
 config.resolver.sourceExts.push("mjs");
+config.resolver.unstable_enablePackageExports = true;
 
 module.exports = withNativeWind(config, { input: "./global.css" }); 
