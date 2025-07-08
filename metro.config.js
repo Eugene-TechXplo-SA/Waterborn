@@ -6,10 +6,5 @@ const config = getDefaultConfig(__dirname);
 
 // Add support for .mjs files to resolve import.meta syntax errors
 config.resolver.sourceExts.push("mjs");
-config.resolver.unstable_enablePackageExports = true;
-
-// Ensure proper Babel transformation for import.meta syntax
-config.transformer.babelTransformerPath = require.resolve("metro-react-native-babel-transformer");
-config.transformer.unstable_transformProfile = 'web';
 
 module.exports = withNativeWind(config, { input: "./global.css" });
