@@ -6,8 +6,7 @@ module.exports = function (api) {
     env: {
       web: {
         plugins: [
-          "@babel/plugin-syntax-import-meta",
-          "@babel/plugin-transform-modules-commonjs"
+          "@babel/plugin-syntax-import-meta"
         ]
       }
     }
