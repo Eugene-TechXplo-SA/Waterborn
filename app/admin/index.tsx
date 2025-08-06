@@ -157,7 +157,7 @@ export default function AdminSettingsScreen() {
               
             
               onPress={() => alert('Reset settings')}
-              style={{backgroundColor: "red", padding: "10"}}
+              style={{backgroundColor: "red", padding: "20"}}
             />
           </View>
           
