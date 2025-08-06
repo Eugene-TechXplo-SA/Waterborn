@@ -79,7 +79,7 @@ export default function App() {
       id: 'admin',
       title: 'Admin Settings',
       icon: <User size={28} color="white" />,
-      gradient: ['#374151', '#111827'] as const, // gray-700, gray-900
+      gradient: ['#1e40af', '#1e3a8a', '#312e81'] as const, // blue-700, blue-800, indigo-800
       href: '/admin'
     });
   }
