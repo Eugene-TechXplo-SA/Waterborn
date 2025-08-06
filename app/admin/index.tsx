@@ -39,7 +39,7 @@ export default function AdminSettingsScreen() {
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         <View style={styles.heroSection}>
           <LinearGradient
-            colors={['#374151', '#111827']}
+            colors={['#1e40af', '#1e3a8a', '#312e81']}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 1 }}
             style={styles.heroGradient}
