@@ -78,7 +78,7 @@ export default function App() {
     features.push({
       id: 'admin',
       title: 'Admin Settings',
-      icon: <Settings size={28} color="white" />,
+      icon: <User size={28} color="white" />,
       gradient: ['#374151', '#111827'] as const, // gray-700, gray-900
       href: '/admin'
     });
