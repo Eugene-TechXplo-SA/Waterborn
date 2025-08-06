@@ -102,19 +102,20 @@ export default function AdminSettingsScreen() {
               <Text style={styles.sectionTitle}>Security & Permissions</Text>
             </View>
 
-             <LinearGradient
-            colors={["#2563eb", "#06b6d4"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={styles.activeTabGradient}
-          >
-             <Button
+                    <LinearGradient
+          colors={["#2563eb", "#06b6d4"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          style={{ padding: 20, marginTop: -10, borderRadius: 10, width: '60%', alignItems: 'center', marginLeft: 60 }}
+          className="shadow-2xl relative"
+        >
+          <Button
               title="Edit Role Permissions"
               onPress={() => alert('Edit permissions')}
               style={styles.button}
             />
-          </LinearGradient>
-           
+        </LinearGradient>
+            
           </View>
           
           <View style={styles.section}>
