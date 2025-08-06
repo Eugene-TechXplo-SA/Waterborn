@@ -102,19 +102,19 @@ export default function AdminSettingsScreen() {
               <Text style={styles.sectionTitle}>Security & Permissions</Text>
             </View>
 
-          <LinearGradient
-          colors={["#2563eb", "#06b6d4"]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          style={{ padding: 20, marginTop: -10, borderRadius: 10, width: '60%', alignItems: 'center', marginLeft: 60 }}
-          className="shadow-2xl relative"
-        >
-          <Button
-              title="Edit Role Permissions"
+            <TouchableOpacity 
+              style={styles.permissionsButton}
               onPress={() => alert('Edit permissions')}
-              
-            />
-        </LinearGradient>
+            >
+              <LinearGradient
+                colors={["#2563eb", "#06b6d4"]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+                style={styles.permissionsGradient}
+              >
+                <Text style={styles.permissionsButtonText}>Edit Role Permissions</Text>
+              </LinearGradient>
+            </TouchableOpacity>
             
           </View>
           
@@ -355,5 +355,27 @@ const styles = StyleSheet.create({
   resourceDescription: {
     fontSize: typography.fontSizes.sm,
     color: colors.text.secondary,
+  },
+  permissionsButton: {
+    borderRadius: borderRadius.md,
+    overflow: 'hidden',
+    alignSelf: 'center',
+    width: '60%',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  permissionsGradient: {
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  permissionsButtonText: {
+    color: 'white',
+    fontSize: typography.fontSizes.md,
+    fontWeight: '600',
   },
 });
