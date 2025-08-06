@@ -357,7 +357,7 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
   },
   permissionsButton: {
-    borderRadius: borderRadius.md,
+    borderRadius: borderRadius.lg,
     overflow: 'hidden',
     alignSelf: 'center',
     width: '80%',
