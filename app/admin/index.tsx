@@ -154,9 +154,10 @@ export default function AdminSettingsScreen() {
             
             <Button
               title="Reset App Settings"
-              variant="danger"
+              {/* variant="danger" */}
+            
               onPress={() => alert('Reset settings')}
-              style={styles.button}
+              style={{backgroundColor: "red"'}}
             />
           </View>
           
