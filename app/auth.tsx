@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, KeyboardAvoidingVi
 import { LinearGradient } from 'expo-linear-gradient';
 import { colors, spacing, typography, borderRadius } from '@/utils/theme';
 import { useRouter } from 'expo-router';
+import { login } from '@/utils/auth';
 
 export default function AuthScreen() {
   const [activeTab, setActiveTab] = useState<'login' | 'signup'>('login');
@@ -11,11 +12,14 @@ export default function AuthScreen() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const router = useRouter();
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (activeTab === 'login') {
-      // Handle login logic here
-      console.log('Login:', { email, password });
-      router.replace('/(tabs)');
+      try {
+        await login(email, password);
+        router.replace('/(tabs)');
+      } catch (error) {
+        alert('Invalid credentials. Try admin@example.com with password: password');
+      }
     } else {
       // Handle signup logic here
       if (password !== confirmPassword) {
