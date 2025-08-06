@@ -133,7 +133,7 @@ export default function AdminSettingsScreen() {
                 <Switch
                   value={darkMode}
                   onValueChange={setDarkMode}
-                  trackColor={{ false: colors.neutral.medium, true: colors.primary.main }}
+                  trackColor={{ false: colors.neutral.medium, true: '#2563eb' }}
                   thumbColor={colors.neutral.white}
                 />
               </View>
@@ -146,7 +146,7 @@ export default function AdminSettingsScreen() {
                 <Switch
                   value={notificationsEnabled}
                   onValueChange={setNotificationsEnabled}
-                  trackColor={{ false: colors.neutral.medium, true: colors.primary.main }}
+                  trackColor={{ false: colors.neutral.medium, true: '#2563eb' }}
                   thumbColor={colors.neutral.white}
                 />
               </View>
