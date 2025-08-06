@@ -102,7 +102,7 @@ export default function AdminSettingsScreen() {
               <Text style={styles.sectionTitle}>Security & Permissions</Text>
             </View>
 
-                    <LinearGradient
+          <LinearGradient
           colors={["#2563eb", "#06b6d4"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
@@ -112,7 +112,7 @@ export default function AdminSettingsScreen() {
           <Button
               title="Edit Role Permissions"
               onPress={() => alert('Edit permissions')}
-              style={styles.button}
+              
             />
         </LinearGradient>
             
