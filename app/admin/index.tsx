@@ -360,7 +360,7 @@ const styles = StyleSheet.create({
     borderRadius: borderRadius.md,
     overflow: 'hidden',
     alignSelf: 'center',
-    width: '60%',
+    width: '80%',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.15,
